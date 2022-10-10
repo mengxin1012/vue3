@@ -1,0 +1,118 @@
+// 平台属性         GET     /admin/product/attrInfoList/${category1Id}/${category2Id}/${category3Id}
+// 返回数据
+[
+  {
+    "id": 106,
+    "attrName": "手机一级",
+    "categoryId": 2,
+    "categoryLevel": 1,
+    "attrValueList": [
+      {
+        "id": 176,
+        "valueName": "安卓手机",
+        "attrId": 106
+      },
+      {
+        "id": 175,
+        "valueName": "苹果手机",
+        "attrId": 106
+      }
+    ]
+  },
+  ...
+]
+
+// 图片列表       GET    /admin/product/spuImageList/${ spuId }
+// 返回数据
+[
+  {
+    "id": 12,
+    "spuId": 3,
+    "imgName": "7155bba4c363065f.jpg",
+    "imgUrl": "http://47.93.148.192:8080/group1/M00/00/02/rBHu8l-rgfWAVRWzAABUiOmA0ic932.jpg"
+  },
+  ....
+]
+
+
+// 销售属性列表   GET     /admin/product/spuSaleAttrList/${ spuId }
+[
+  {
+    "id": 5,
+    "spuId": 3,
+    "baseSaleAttrId": 1,
+    "saleAttrName": "颜色",
+    "spuSaleAttrValueList": [
+      {
+        "id": 9,
+        "spuId": 3,
+        "baseSaleAttrId": 1,
+        "saleAttrValueName": "黑色",
+        "saleAttrName": "颜色",
+        "isChecked": null
+      },
+      {
+        "id": 10,
+        "spuId": 3,
+        "baseSaleAttrId": 1,
+        "saleAttrValueName": "红色",
+        "saleAttrName": "颜色",
+        "isChecked": null
+      },
+    ]
+  },
+  ...
+]
+
+
+// 保存sku            POST        /app-dev/admin/product/saveSkuInfo  需要请求体数据,放要创建的sku数据
+a = {
+  "price": "3999",
+  "skuName": " Apple iPhone 12 mini",
+  "skuDesc": "随便写",
+  "weight": "0.6",
+  "skuDefaultImg": "http://47.93.148.192:8080/group1/M00/00/02/rBHu8l-rgfWAO2oYAAEw9kY2VKk982.jpg",
+  "skuImageList": [
+    {
+      "id": 12,
+      "spuId": 3,
+      "imgName": "7155bba4c363065f.jpg",
+      "imgUrl": "http://47.93.148.192:8080/group1/M00/00/02/rBHu8l-rgfWAVRWzAABUiOmA0ic932.jpg",
+      "isDefault": "0" // 用来筛选默认图片的
+    },
+    {
+      "id": 13,
+      "spuId": 3,
+      "imgName": "2689bc534d570eaf.jpg",
+      "imgUrl": "http://47.93.148.192:8080/group1/M00/00/02/rBHu8l-rgfWAO2oYAAEw9kY2VKk982.jpg",
+      "isDefault": "1" // 用来筛选默认图片的
+    }
+  ],
+  "skuAttrValueList": [ // 收集的平台属性,有 平台属性id 和 平台属性值id
+    {
+      "attrId": "106",
+      "valueId": "175"
+    },
+    {
+      "attrId": "107",
+      "valueId": "179"
+    },
+    {
+      "attrId": "23",
+      "valueId": "83"
+    }
+  ],
+  "skuSaleAttrValueList": [ // 收集的销售属性,有 销售属性id 和 销售属性值id
+    {
+      "saleAttrId": "5",
+      "saleAttrValueId": "9"
+    },
+    {
+      "saleAttrId": "6",
+      "saleAttrValueId": "13"
+    }
+  ],
+  "spuId": 3, // 给当前spu去添加sku呢, spuId 是当前spu的id,数据从 父级spuInfo拿过来
+  "tmId": 2, // 品牌id,数据从 父级spuInfo拿过来
+  "category3Id": 61 // 从store当中拿即可
+}
