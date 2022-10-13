@@ -13,6 +13,10 @@
 </template>
 
 <script lang="ts">
+// 页面分布分为三块内容:
+// sidebar - 左侧侧边栏 - 侧边栏显示用的递归组件实现的
+// nav-bar - 顶部导航 - 需要修改"退出登录"的字样
+// app-main - 主要显示区域 - component组件使用is属性实现的
 export default {
   name: 'Layout'
 }

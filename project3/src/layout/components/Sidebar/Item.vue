@@ -10,7 +10,7 @@
 </script>
 
 <script lang="ts" setup>
-defineProps({
+const props = defineProps({
   icon: {
     type: String,
     default: ''
@@ -20,6 +20,7 @@ defineProps({
     default: ''
   }
 })
+// console.log(props)
 </script>
 
 <style scoped>

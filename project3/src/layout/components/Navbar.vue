@@ -5,10 +5,10 @@
     <breadcrumb class="breadcrumb-container" />
 
     <div class="right-menu">
-      <div class="right-menu-item">{{userInfoStore.name}}</div>
+      <div class="right-menu-item">{{userInfoStore.userinfo.name}}</div>
       <el-dropdown class="avatar-container" trigger="click">
         <div class="avatar-wrapper">
-          <img v-if="userInfoStore.avatar" :src="userInfoStore.avatar" class="user-avatar">
+          <img v-if="userInfoStore.userinfo.avatar" :src="userInfoStore.userinfo.avatar" class="user-avatar">
           <el-icon class="el-icon-caret-bottom">
             <arrow-down />
           </el-icon>
@@ -19,7 +19,7 @@
               <el-dropdown-item>首页</el-dropdown-item>
             </router-link>
             <el-dropdown-item divided @click="logout">
-              <span style="display:block;">退出登陆</span>
+              <span style="display:block;">退出登录</span>
             </el-dropdown-item>
           </el-dropdown-menu>
         </template>

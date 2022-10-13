@@ -1,4 +1,4 @@
-import axios, { type AxiosResponse } from 'axios';
+import axios, {type AxiosRequestConfig, type AxiosRequestHeaders, type AxiosResponse} from 'axios';
 import { ElMessage, ElMessageBox } from 'element-plus';
 import pinia from '@/stores/index';
 import { useUserInfoStore } from '../stores/userInfo';
@@ -12,14 +12,18 @@ interface ResponseData<T> {
 
 // 配置新建一个 axios 实例
 const service = axios.create({
-	baseURL: import.meta.env.VITE_API_URL,
+	baseURL: import.meta.env.VITE_API_URL, // 自动根据环境(开发、生产)找到配置vite的环境变量
 	timeout: 50000,
 });
 
 // 添加请求拦截器
 service.interceptors.request.use(
-	(config) => {
-    
+	(config:AxiosRequestConfig<any>) => {
+		const userInfo=useUserInfoStore()
+    	let token=userInfo.token
+		if(token){
+			(config.headers as AxiosRequestHeaders).token=token
+		}
 		return config;
 	}
 );

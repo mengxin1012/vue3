@@ -1,6 +1,10 @@
 <template>
   <div v-if="!item.meta || !item.meta.hidden">
-    <template v-if="hasOneShowingChild(item.children, item) && (!onlyOneChild.children||onlyOneChild.noShowingChildren)&&!item.alwaysShow">
+    <!--
+      当只有一个子路由的时候走 v-if
+      当有多个子路由的时候走 v-else
+    -->
+    <template v-if="hasOneShowingChild(item.children, item) && (!onlyOneChild.children||onlyOneChild.noShowingChildren)">
       <app-link v-if="onlyOneChild.meta" :to="resolvePath(onlyOneChild.path)">
         <el-menu-item :index="resolvePath(onlyOneChild.path)" :class="{'submenu-title-noDropdown':!isNest}">
         <item :icon="onlyOneChild.meta.icon || (item.meta && item.meta.icon)" 
@@ -65,6 +69,7 @@
       default: ''
     }
   })
+  // console.log(props.item)
 
   const onlyOneChild = ref<any>({})
 
