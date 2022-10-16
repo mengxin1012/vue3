@@ -1,6 +1,6 @@
 <template>
-    <el-card class="md-5">
-        <el-form :inline="true" class="demo-form-inline">
+    <el-card >
+        <el-form :inline="true">
             <el-form-item label="一级分类">
                 <el-select v-model="store.category1Id" placeholder="品牌" @change="store.getCate2">
                     <el-option :label="c1.name" :value="c1.id" v-for="c1 in store.categoryList" :key="c1.id" />

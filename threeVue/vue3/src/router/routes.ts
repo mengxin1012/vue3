@@ -29,7 +29,6 @@ import type { RouteRecordRaw } from 'vue-router';
       hidden: true
     }
   },
-
   {
     path: '/',
     component: () => import('@/layout/index.vue'),
@@ -85,6 +84,24 @@ import type { RouteRecordRaw } from 'vue-router';
                 }
             },
 ]
+    },
+    {
+        path: '/order',
+        component: () => import('@/layout/index.vue'),
+        meta: {
+            title: '订单管理',
+            icon: 'ele-WalletFilled',
+        },
+        children: [{
+            path: 'orderManagement',
+            name: 'orderManagement',
+            component: () => import('@/views/Order/orderManagement.vue'),
+            meta: {
+                title: '订单管理',
+                icon: 'ele-CreditCard',
+            }
+        }
+        ]
     },
 
   /* 匹配任意的路由 必须最后注册 */

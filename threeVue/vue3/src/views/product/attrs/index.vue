@@ -34,10 +34,18 @@
             </el-table-column>
             <el-table-column label="操作" width="160">
                 <template #default="{$index,row}">
-                    <el-button type="primary" @click="handleEdit($index, row)" :icon="Edit"
-                    ></el-button
+                    <el-button type="primary" @click="handleEdit($index, row)" :icon="Edit"></el-button>
+
+                    <el-popconfirm
+                        confirm-button-text="确认"
+                        cancel-button-text="取消"
+                        :title="`你确认删除${row.attrName}吗`"
+                        @confirm="deleteList($index, row)"
                     >
-                    <el-button type="danger" @click="deleteList($index, row)" :icon="Delete"></el-button>
+                        <template #reference>
+                        <el-button type="danger" :icon="Delete"></el-button>
+                        </template>
+                    </el-popconfirm>
                 </template>
             </el-table-column>
         </el-table>

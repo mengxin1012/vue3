@@ -18,9 +18,10 @@ import './styles/index.scss'
 import ElSvg from './components/SvgIcon/ElSvg'
 //引入执行路由权限相关的文件
 import './permission'
+import category from "@/components/category/index.vue";
 
 const app = createApp(App)
-
+app.component(category.name,category)
 
 ElSvg(app)
 

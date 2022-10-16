@@ -1,13 +1,13 @@
 import {defineStore} from "pinia";
-import type {} from "@/api/interfaces";
+import type {oneList,twoList,threeList} from "@/api/interfaces";
 import api from "@/api/attrs";
 interface cateModel{
     category1Id:undefined | number,
     category2Id:undefined | number,
     category3Id:undefined | number,
-    categoryList:[],
-    category2List:[],
-    category3List:[],
+    categoryList:oneList[],
+    category2List:twoList[],
+    category3List:threeList[],
 }
 const categroys=()=>({
     category1Id:undefined,

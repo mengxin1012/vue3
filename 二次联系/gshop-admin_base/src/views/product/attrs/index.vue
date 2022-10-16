@@ -1,5 +1,6 @@
 <template>
     <div>
+        <CateGory></CateGory>
 <!--        inline变为行内元素.0-->
         <el-card class="md-5">
         <el-form :inline="true" :model="attrList" class="demo-form-inline">
@@ -123,6 +124,7 @@ const spanType=ref(false)
 import { computed, ref} from 'vue'
 import type {oneLists,attrValueType, twoLists, threeLists, selectList,attrType, attrTypes, attrValueTypes} from "@/api/interfaces";
 import {ElMessage} from "element-plus";
+import CateGory from "@/components/category/index.vue";
 //修改属性
 const handleEdit = (index: number, row: attrType) => {
     flag.value=!flag.value
